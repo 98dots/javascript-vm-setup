@@ -1,0 +1,12 @@
+---
+- src: https://github.com/robertdebock/ansible-role-npm.git
+  name: npm
+
+- src: https://github.com/gantsign/ansible-role-visual-studio-code
+  name: vscode
+
+- src: https://github.com/gantsign/ansible-role-visual-studio-code-extensions
+  name: vscodextensions
+
+- src: https://github.com/robertdebock/ansible-role-reboot.git
+  name: reboot  

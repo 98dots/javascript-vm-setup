@@ -1,0 +1,27 @@
+- hosts: all
+  become: yes
+  
+  vars:
+    keyboard_layout: ch
+    reboot_always: yes
+
+  pre_tasks:
+  - name: Run update
+    shell: apt-get update
+    ignore_errors: yes
+  - name: Set keyboard layout
+    shell: localectl set-x11-keymap {{ keyboard_layout }}
+  - name: Ensure keyboard layout in dconf
+    shell: dconf write /org/gnome/desktop/input-sources/sources "[('xkb', '{{ keyboard_layout }}')]" 
+    become: false
+    ignore_errors: yes
+                
+  roles:
+    - role: npm
+    - role: vscode
+    - role: vscodextensions
+      users:
+        - username: vagrant
+          visual_studio_code_extensions:
+            - waderyan.nodejs-extension-pack
+    - role: reboot    
