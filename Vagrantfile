@@ -39,7 +39,7 @@ Vagrant.configure(2) do |config|
 
     def getPassword
       password = STDIN.getpass("Password?")
-      URI.escape(password)
+      password.to_s
     end
   end
 
