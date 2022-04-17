@@ -1,5 +1,5 @@
 ---
-- src: https://github.com/robertdebock/ansible-role-npm.git
+- src: https://github.com/geerlingguy/ansible-role-nodejs.git
   name: npm
 
 - src: https://github.com/gantsign/ansible-role-visual-studio-code
